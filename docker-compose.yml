@@ -14,9 +14,9 @@ services:
       - DB_CONNECTION=mysql
       - DB_HOST=db
       - DB_PORT=3306
-      - DB_DATABASE=${DB_NAME:-laravel_local}
-      - DB_USERNAME=${DB_USER:-phper}
-      - DB_PASSWORD=${DB_PASS:-secret}
+      - DB_DATABASE=${DB_NAME:-ci4}
+      - DB_USERNAME=${DB_USER:-ci4}
+      - DB_PASSWORD=${DB_PASS:-ci4}
 
   db:
     build:
@@ -27,7 +27,7 @@ services:
     volumes:
       - db-store:/var/lib/mysql
     environment:
-      - MYSQL_DATABASE=${DB_NAME:-laravel_local}
-      - MYSQL_USER=${DB_USER:-phper}
-      - MYSQL_PASSWORD=${DB_PASS:-secret}
-      - MYSQL_ROOT_PASSWORD=${DB_PASS:-secret}
+      - MYSQL_DATABASE=${DB_NAME:-ci4}
+      - MYSQL_USER=${DB_USER:-ci4}
+      - MYSQL_PASSWORD=${DB_PASS:-ci4}
+      - MYSQL_ROOT_PASSWORD=${DB_PASS:-root}
