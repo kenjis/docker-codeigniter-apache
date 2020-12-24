@@ -33,3 +33,15 @@ services:
       - MYSQL_USER=${DB_USER:-ci4}
       - MYSQL_PASSWORD=${DB_PASS:-ci4}
       - MYSQL_ROOT_PASSWORD=${DB_PASS:-root}
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.0.4
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: ${DB_PORT:-3306}
+    ports:
+      - 81:80
+    volumes:
+      - db-store:/sessions
