@@ -44,7 +44,7 @@ Read this [Makefile](https://github.com/kenjis/docker-codeigniter-apache/blob/ma
 
 #### Persistent MySQL Storage
 
-By default, the [named volume](https://docs.docker.com/compose/compose-file/#volumes) is mounted, so MySQL data remains even if the container is destroyed.
+By default, the [named volume](https://github.com/compose-spec/compose-spec/blob/master/spec.md#volumes) is mounted, so MySQL data remains even if the container is destroyed.
 If you want to delete MySQL data intentionally, execute the following command.
 
 ```bash
