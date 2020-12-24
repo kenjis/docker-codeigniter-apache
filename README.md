@@ -1,27 +1,27 @@
-# docker-laravel-apache 🐳
+# docker-codeigniter-apache 🐳
 
-![License](https://img.shields.io/github/license/ucan-lab/docker-laravel-apache?color=f05340)
-![Stars](https://img.shields.io/github/stars/ucan-lab/docker-laravel-apache?color=f05340)
-![Issues](https://img.shields.io/github/issues/ucan-lab/docker-laravel-apache?color=f05340)
-![Forks](https://img.shields.io/github/forks/ucan-lab/docker-laravel-apache?color=f05340)
+![License](https://img.shields.io/github/license/kenjis/docker-codeigniter-apache?color=f05340)
+![Stars](https://img.shields.io/github/stars/kenjis/docker-codeigniter-apache?color=f05340)
+![Issues](https://img.shields.io/github/issues/kenjis/docker-codeigniter-apache?color=f05340)
+![Forks](https://img.shields.io/github/forks/kenjis/docker-codeigniter-apache?color=f05340)
 
 ## Introduction
 
-Build a simple laravel development environment with docker-compose.
-Apache version of [docker-laravel](https://github.com/ucan-lab/docker-laravel).
+Build a simple CodeIgniter development environment with docker-compose.
+CodeIgniter version of [docker-laravel-apache](https://github.com/ucan-lab/docker-laravel-apache).
 
 ## Usage
 
 ```bash
-$ git clone git@github.com:ucan-lab/docker-laravel-apache.git
-$ cd docker-laravel-apache
-$ make create-project # Install the latest Laravel project
+$ git clone git@github.com:kenjis/docker-codeigniter-apache.git
+$ cd docker-codeigniter-apache
+$ make create-project # Install the latest CodeIgniter4 project
 $ make install-recommend-packages # Not required
 ```
 
 http://localhost
 
-Read this [Makefile](https://github.com/ucan-lab/docker-laravel-apache/blob/master/Makefile).
+Read this [Makefile](https://github.com/kenjis/docker-codeigniter-apache/blob/master/Makefile).
 
 ## Container structure
 
