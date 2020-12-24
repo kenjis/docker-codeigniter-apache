@@ -2,30 +2,18 @@ up:
 	docker-compose up -d
 build:
 	docker-compose build --no-cache --force-rm
-laravel-install:
-	docker-compose exec web composer create-project --prefer-dist laravel/laravel .
+codeigniter4-install:
+	docker-compose exec web composer create-project --prefer-dist codeigniter4/appstarter .
 create-project:
 	@make build
 	@make up
-	@make laravel-install
-	docker-compose exec web php artisan key:generate
-	docker-compose exec web php artisan storage:link
-	@make fresh
+	@make codeigniter4-install
 install-recommend-packages:
-	docker-compose exec web composer require doctrine/dbal
-	docker-compose exec web composer require --dev barryvdh/laravel-ide-helper
-	docker-compose exec web composer require --dev beyondcode/laravel-dump-server
-	docker-compose exec web composer require --dev barryvdh/laravel-debugbar
 	docker-compose exec web composer require --dev roave/security-advisories:dev-master
-	docker-compose exec web php artisan vendor:publish --provider="BeyondCode\DumpServer\DumpServerServiceProvider"
-	docker-compose exec web php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
 init:
 	docker-compose up -d --build
 	docker-compose exec web composer install
-	docker-compose exec web cp .env.example .env
-	docker-compose exec web php artisan key:generate
-	docker-compose exec web php artisan storage:link
-	@make fresh
+	docker-compose exec web cp env .env
 remake:
 	@make destroy
 	@make init
@@ -61,31 +49,11 @@ log-db-watch:
 web:
 	docker-compose exec web bash
 migrate:
-	docker-compose exec web php artisan migrate
-fresh:
-	docker-compose exec web php artisan migrate:fresh --seed
-seed:
-	docker-compose exec web php artisan db:seed
-rollback-test:
-	docker-compose exec web php artisan migrate:fresh
-	docker-compose exec web php artisan migrate:refresh
-tinker:
-	docker-compose exec web php artisan tinker
+	docker-compose exec web php spark migrate
 test:
-	docker-compose exec web php artisan test
-optimize:
-	docker-compose exec web php artisan optimize
-optimize-clear:
-	docker-compose exec web php artisan optimize:clear
-cache:
-	docker-compose exec web composer dump-autoload -o
-	@make optimize
-	docker-compose exec web php artisan event:cache
-	docker-compose exec web php artisan view:cache
+	docker-compose exec web composer test
 cache-clear:
-	docker-compose exec web composer clear-cache
-	@make optimize-clear
-	docker-compose exec web php artisan event:clear
+	docker-compose exec web php spark cache:clear
 npm:
 	@make npm-install
 npm-install:
@@ -116,8 +84,3 @@ sql:
 	docker-compose exec db bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
 redis:
 	docker-compose exec redis redis-cli
-ide-helper:
-	docker-compose exec web php artisan clear-compiled
-	docker-compose exec web php artisan ide-helper:generate
-	docker-compose exec web php artisan ide-helper:meta
-	docker-compose exec web php artisan ide-helper:models --nowrite
