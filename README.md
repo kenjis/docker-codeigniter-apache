@@ -33,14 +33,14 @@ Read this [Makefile](https://github.com/kenjis/docker-codeigniter-apache/blob/ma
 ### web container
 
 - Base image
-  - [php](https://hub.docker.com/_/php):7.4-apache-buster
-  - [composer](https://hub.docker.com/_/composer):2.0
-  - [node](https://hub.docker.com/_/node):node:14-buster
+  - [php](https://hub.docker.com/_/php): 7.4-apache-buster
+  - [composer](https://hub.docker.com/_/composer): 2.0
+  - [node](https://hub.docker.com/_/node): node:14-buster
 
 ### db container
 
 - Base image
-  - [mysql](https://hub.docker.com/_/mysql):8.0
+  - [mysql](https://hub.docker.com/_/mysql): 8.0
 
 #### Persistent MySQL Storage
 
