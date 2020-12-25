@@ -27,7 +27,8 @@ Read this [Makefile](https://github.com/kenjis/docker-codeigniter-apache/blob/ma
 
 ```bash
 ├── web
-└── db
+├── db
+└── phpmyadmin
 ```
 
 ### web container
@@ -41,6 +42,11 @@ Read this [Makefile](https://github.com/kenjis/docker-codeigniter-apache/blob/ma
 
 - Base image
   - [mysql](https://hub.docker.com/_/mysql): 8.0
+
+### phpmyadmin container
+
+- Base image
+  - [phpmyadmin/phpmyadmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin): 5.0.4
 
 #### Persistent MySQL Storage
 
